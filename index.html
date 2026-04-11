@@ -17,169 +17,143 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --ink: #1a1714; --ink-soft: #3d3830; --ink-muted: #6e6458; --ink-faint: #b0a898;
-      --paper: #f9f6f1; --paper-warm: #f3ede3; --paper-deep: #e8dfd0; --rule: #d4c9b8;
-      --accent: #c0392b; --accent-dark: #962d22; --accent-pale: #f5e8e6;
-      --teal: #1a6b72; --teal-pale: #e3f0f1; --gold: #b8922a; --gold-pale: #f8f1e0;
-      --col-width: 680px; --wide-width: 900px;
+      --font-serif: 'Source Serif 4', serif;
+      --font-display: 'Playfair Display', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --text-color: #eee9df;
+      --bg-color: #18171b;
+      --accent: #b8922a;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.75; font-weight: 300; }
-
-    /* ── HERO ── */
-    .hero { max-width: var(--wide-width); margin: 0 auto; padding: 60px 20px; text-align: center; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 56px); font-weight: 600; color: var(--ink); margin-bottom: 24px; letter-spacing: -0.02em; line-height: 1.2; }
-    .hero-subtitle { font-family: 'Playfair Display', serif; font-size: clamp(16px, 2.5vw, 22px); font-weight: 400; font-style: italic; color: rgba(249,246,241,.7); margin-bottom: 24px; max-width: 700px; }
-    .hero-sub { font-size: 17px; font-weight: 300; color: rgba(249,246,241,.6); max-width: 620px; line-height: 1.65; margin: 0 auto 18px; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-serif);
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 600; }
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(184, 146, 42, 0.4); transition: all 0.3s ease; }
+    a:hover { border-bottom-color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(240, 235, 226, 0.1);
+    }
+    .logo { font-size: 1.2rem; font-weight: 600; text-decoration: none; border: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { border: none; }
+    .nav-links a:hover { opacity: 0.8; }
+    .hero { padding: 4rem 0; text-align: center; }
+    .hero h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 1.5rem 0; font-weight: 700; }
+    .hero-sub { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: rgba(240, 235, 226, 0.85); line-height: 1.7; }
     .hero-note { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.72rem; letter-spacing: 0.08em; color: rgba(240,235,226,0.55); margin-top: 0.5rem; }
     .hero-note a { color: var(--accent, #b8922a); text-decoration: none; border-bottom: 1px solid rgba(184,146,42,0.4); }
     .hero-note a:hover { border-bottom-color: var(--accent, #b8922a); }
-
-    /* ── ARTICLE CONTAINER ── */
-    article { max-width: var(--col-width); margin: 0 auto; padding: 0 20px; }
-
-    /* ── TYPOGRAPHY ── */
-    h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 36px); font-weight: 600; margin: 48px 0 24px 0; color: var(--ink); line-height: 1.3; }
-    h3 { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; margin: 36px 0 18px 0; color: var(--ink); line-height: 1.4; }
-    h4 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; margin: 28px 0 14px 0; color: var(--ink-soft); }
-    p { margin-bottom: 20px; color: var(--ink); }
-    strong { font-weight: 600; }
-    em { font-style: italic; }
-    a { color: var(--accent); text-decoration: none; border-bottom: 2px solid rgba(192,57,43,0.3); transition: border-color 0.2s ease; }
-    a:hover { border-bottom-color: var(--accent); }
-    a.external::after { content: ' ↗'; font-size: 0.8em; }
-
-    /* ── LISTS ── */
-    ul, ol { margin: 20px 0 20px 40px; }
-    li { margin-bottom: 10px; }
-    ul li::marker { color: var(--ink-muted); }
-
-    /* ── BLOCKQUOTE ── */
-    blockquote { border-left: 4px solid var(--accent); padding-left: 24px; margin: 28px 0; color: var(--ink-muted); font-style: italic; }
-
-    /* ── CODE ── */
-    code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: var(--paper-warm); padding: 2px 6px; border-radius: 3px; }
-    pre { background: var(--paper-warm); padding: 16px; border-radius: 6px; overflow-x: auto; margin: 20px 0; }
-    pre code { background: none; padding: 0; }
-
-    /* ── FIGURES ── */
-    figure { margin: 40px 0; text-align: center; }
-    figcaption { font-size: 16px; color: var(--ink-muted); margin-top: 12px; font-style: italic; }
-    img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
-
-    /* ── HR ── */
-    hr { border: none; height: 1px; background: var(--rule); margin: 48px 0; }
-
-    /* ── FOOTER ── */
-    footer { max-width: var(--col-width); margin: 80px auto 0; padding: 40px 20px; border-top: 1px solid var(--rule); text-align: center; color: var(--ink-muted); font-size: 14px; }
-    footer p { margin-bottom: 12px; }
-    footer a { color: var(--ink-muted); border-bottom-color: rgba(110,100,88,0.3); }
-    footer a:hover { color: var(--ink); border-bottom-color: var(--ink); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .hero { padding: 40px 20px; }
-      .hero h1 { margin-bottom: 18px; }
-      article { padding: 0 16px; }
-      h2 { margin: 36px 0 18px 0; }
-      h3 { margin: 28px 0 14px 0; }
-      ul, ol { margin-left: 24px; }
-      blockquote { padding-left: 16px; }
-      figure { margin: 28px 0; }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #f0ebe2; --ink-soft: #d4c9b8; --ink-muted: #a39885; --ink-faint: #6b6458;
-        --paper: #1a1714; --paper-warm: #252018; --paper-deep: #2f2825; --rule: #3d3830;
-      }
-      a { color: var(--gold); border-bottom-color: rgba(184,146,42,0.3); }
-      a:hover { border-bottom-color: var(--gold); }
-      code { background: var(--paper-warm); }
-      .hero-sub { color: rgba(240,235,226,.6); }
-    }
+    .article { padding: 2rem 0; }
+    .article-section { margin: 3rem 0; }
+    .article-section h2 { font-size: 2rem; margin: 2rem 0 1rem 0; }
+    .article-section h3 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem 0; }
+    .article-section p { margin: 1rem 0; text-align: justify; }
+    figure { margin: 2rem 0; text-align: center; }
+    figcaption { font-size: 0.9rem; color: rgba(240, 235, 226, 0.7); margin-top: 0.5rem; font-style: italic; }
+    .bio { margin: 3rem 0; padding: 2rem; background-color: rgba(184, 146, 42, 0.05); border-left: 3px solid var(--accent); }
+    .bio h3 { margin-top: 0; }
+    .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+    .social-links a { font-size: 0.9rem; }
+    footer { text-align: center; padding: 2rem 0; border-top: 1px solid rgba(240, 235, 226, 0.1); margin-top: 3rem; font-size: 0.9rem; color: rgba(240, 235, 226, 0.6); }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <h1>The Quantum Computing Revolution</h1>
-    <p class="hero-subtitle">Unlocking Solutions to Humanity's Toughest Problems</p>
-    <p class="hero-sub">Quantum computing might sound like just another geeky buzzword — but in reality, it could be the most consequential technological breakthrough of all time. Far more than a faster classical computer, it operates on entirely different physical principles — ones that could crack problems today's most powerful machines would take longer than the age of the universe to solve. This article explores how these extraordinary properties are tailor-made to tackle humanity's most pressing challenges: from accelerating drug discovery to modelling climate systems and transforming clean energy.</p>
-    <p class="hero-note">This article is also available on my personal <a href="https://medium.com/@oliverinderwildi" target="_blank" rel="noopener">blog</a>.</p>
-  </section>
+  <div class="container">
+    <nav class="navbar">
+      <a href="#" class="logo">OI</a>
+      <ul class="nav-links">
+        <li><a href="https://www.oliverinderwildi.com">About</a></li>
+        <li><a href="https://scholar.google.com/citations?user=SCHOLAR_ID">Publications</a></li>
+      </ul>
+    </nav>
 
-  <article>
-    <h2>Introduction: The Promise and the Puzzle</h2>
-    <p>Quantum computing is not simply a faster version of classical computing. It exploits fundamentally different physical laws to process information in ways that classical computers cannot. Two quantum phenomena — <strong>superposition</strong> and <strong>entanglement</strong> — lie at the heart of this revolutionary capability.</p>
-    <p>In classical computing, information is encoded in bits that exist in one of two states: 0 or 1. A quantum bit, or <em>qubit</em>, can exist in a <strong>superposition</strong> of both states simultaneously. This means a quantum computer can explore multiple solutions to a problem in parallel, a property that becomes exponentially powerful with each additional qubit added to the system.</p>
-    <p><strong>Entanglement</strong> is equally transformative. When qubits become entangled, the state of one qubit instantly influences the state of another, regardless of distance. This correlation allows quantum computers to process information in highly coordinated ways that would be impossible for classical systems.</p>
-    <p>Together, these properties enable quantum computers to solve certain problems exponentially faster than their classical counterparts. But the challenge lies in identifying which problems quantum computers can actually solve better, and how to build reliable quantum systems that harness these properties in practice.</p>
+    <section class="hero">
+      <h1>The Quantum Computing Revolution</h1>
+      <p class="hero-sub">Quantum computing might sound like just another geeky buzzword — but in reality, it could be the most consequential technological breakthrough of all time. Far more than a faster classical computer, it operates on entirely different physical principles — ones that could crack problems today's most powerful machines would take longer than the age of the universe to solve. This article explores how these extraordinary properties are tailor-made to tackle humanity's most pressing challenges: from accelerating drug discovery to modelling climate systems and transforming clean energy.</p>
+      <p class="hero-note">This article is also available on my personal <a href="https://medium.com/@oliverinderwildi" target="_blank" rel="noopener">blog</a>.</p>
+    </section>
 
-    <h2>Section 1: Superposition and Its Power</h2>
-    <p>To understand superposition, it helps to think of a classical bit as a light switch — it's either on (1) or off (0). A qubit, by contrast, is more like a spinning coin. While it's spinning, it's neither heads nor tails; it's both simultaneously. Only when you catch the coin and look at it does it "collapse" into one state or the other.</p>
-    <p>This ability to explore multiple states simultaneously is where quantum computing's exponential advantage emerges. Consider a search problem: if you have a classical computer searching through a database of 1 million items, it must check items one by one. A quantum computer, using superposition, can theoretically check all 1 million items at the same time.</p>
-    <p>For certain problems, this translates to dramatic speedups. A classical computer might take billions of years to crack a particular encryption code; a quantum computer could solve it in hours. This isn't just incremental improvement — it's a fundamental shift in computational power.</p>
+    <article class="article">
+      <section class="article-section">
+        <h2>Understanding Quantum Computing Fundamentals</h2>
+        <p>Traditional computers process information using bits that are either 0 or 1. In contrast, quantum computers harness the principles of quantum mechanics to process information using quantum bits, or "qubits," which can exist in a superposition of both 0 and 1 simultaneously. This fundamental difference gives quantum computers unprecedented computational power for specific problem classes.</p>
+        <p>The ability to maintain superposition allows quantum computers to explore many possible solutions to a problem in parallel, rather than sequentially as classical computers must do. Combined with quantum entanglement—where qubits become correlated in ways that have no classical equivalent—quantum computers can solve certain problems exponentially faster than their classical counterparts.</p>
+      </section>
 
-    <h2>Section 2: Entanglement and Correlation</h2>
-    <p>Entanglement is perhaps the most counterintuitive aspect of quantum mechanics. When two qubits are entangled, measuring the state of one qubit instantly determines the state of the other, even if they are separated by vast distances. Einstein famously called this "spooky action at a distance."</p>
-    <p>In quantum computing, entanglement allows qubits to be correlated in ways that dramatically amplify computational power. It's not just that more qubits are added; the <em>interactions</em> between qubits create an exponentially larger computational space. With just 300 entangled qubits, you could represent more states than there are atoms in the observable universe.</p>
-    <p>This correlation property is what makes quantum computers so potentially powerful for solving optimization problems, simulating molecular behavior, and exploring vast solution spaces.</p>
+      <section class="article-section">
+        <h2>Applications in Drug Discovery and Development</h2>
+        <p>One of the most promising near-term applications of quantum computing is in pharmaceutical research. Drug discovery currently involves screening millions of molecular compounds to identify those with desired properties. This process is computationally intensive and time-consuming, often taking years and billions of dollars to bring a new drug to market.</p>
+        <p>Quantum computers could revolutionize this process by simulating molecular interactions at the quantum level with far greater accuracy than classical methods. They could potentially predict how different compounds interact with disease targets, significantly accelerating the identification of promising drug candidates. This has profound implications for treating diseases ranging from cancer to neurodegenerative disorders.</p>
+        <figure>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect fill='%23242329' width='600' height='300'/%3E%3Ctext x='300' y='150' font-family='Arial' font-size='24' fill='%23b8922a' text-anchor='middle' dominant-baseline='middle'%3EMolecular Simulation in Drug Discovery%3C/text%3E%3C/svg%3E" alt="Quantum molecular simulation visualization" />
+          <figcaption>Quantum computers can simulate molecular interactions at unprecedented scales, accelerating drug discovery timelines.</figcaption>
+        </figure>
+      </section>
 
-    <h2>Section 3: Quantum Algorithms and Practical Applications</h2>
-    <p>Having the raw power of superposition and entanglement isn't enough; you also need clever algorithms that harness these properties to solve real problems. Some of the most important quantum algorithms include:</p>
-    <ul>
-      <li><strong>Shor's Algorithm:</strong> Breaks certain types of encryption by finding the prime factors of large numbers exponentially faster than classical methods.</li>
-      <li><strong>Grover's Algorithm:</strong> Searches through unstructured databases faster than any classical algorithm could.</li>
-      <li><strong>Variational Quantum Eigensolver (VQE):</strong> Finds the ground state energy of molecules, with applications in drug discovery and materials science.</li>
-      <li><strong>Quantum Approximate Optimization Algorithm (QAOA):</strong> Solves optimization problems relevant to logistics, finance, and operations.</li>
-    </ul>
-    <p>But quantum algorithms are not a panacea. They only provide exponential speedups for specific types of problems. For many everyday computational tasks, classical computers remain superior. The key is identifying which problems are truly suited to quantum approaches.</p>
+      <section class="article-section">
+        <h2>Revolutionizing Climate Modeling</h2>
+        <p>Climate science faces an enormous computational challenge: accurately modeling the Earth's climate system requires simulating complex interactions between the atmosphere, oceans, land surfaces, and ice sheets across multiple scales—from local weather patterns to global climate trends. Current climate models, despite their sophistication, still contain significant uncertainties and computational limitations.</p>
+        <p>Quantum computers could enhance climate modeling in several ways. First, they could solve certain optimization problems more efficiently, such as finding the most accurate parameters for climate models given observational data. Second, they could simulate quantum phenomena in materials science that affect climate-relevant processes, such as solar cell efficiency or carbon capture mechanisms. Third, they could potentially explore vast solution spaces to identify optimal strategies for climate mitigation and adaptation.</p>
+        <figure>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect fill='%23242329' width='600' height='300'/%3E%3Ctext x='300' y='150' font-family='Arial' font-size='24' fill='%23b8922a' text-anchor='middle' dominant-baseline='middle'%3EClimate System Complexity%3C/text%3E%3C/svg%3E" alt="Climate modeling visualization" />
+          <figcaption>Quantum computing could dramatically improve climate model accuracy by handling unprecedented computational complexity.</figcaption>
+        </figure>
+      </section>
 
-    <h2>Section 4: Climate Modelling and Complex Systems</h2>
-    <p>One of the most compelling applications of quantum computing is <strong>climate modelling</strong>. Climate systems are among the most complex systems on Earth, involving billions of interacting variables across atmosphere, ocean, ice sheets, and biosphere.</p>
-    <p>Classical computers can run climate simulations, but they face severe limitations. High-resolution climate models require enormous computational resources and take weeks or months to run. Quantum computers could potentially simulate molecular interactions and chemical processes at the quantum level far more efficiently than classical approaches, leading to more accurate predictions of climate behavior.</p>
-    <p>More accurate climate models could enable better policy decisions, earlier detection of tipping points, and more effective mitigation strategies. For a challenge as urgent as climate change, quantum computing could be transformative.</p>
+      <section class="article-section">
+        <h2>Transforming Clean Energy Systems</h2>
+        <p>The transition to sustainable energy requires breakthroughs in several areas: developing more efficient solar cells and batteries, discovering new catalysts for hydrogen production, and optimizing energy systems at scale. All of these challenges involve quantum phenomena at their core—the behavior of electrons in materials, the dynamics of chemical reactions, and the properties of novel materials.</p>
+        <p>Quantum computers are uniquely suited to tackle these problems because they naturally operate at the quantum level. They could accelerate the discovery of materials with superior properties for energy conversion and storage. For example, quantum simulations could help design batteries with higher energy density, solar cells with improved efficiency, or catalysts that enable economical production of clean fuels. Such advances could dramatically accelerate the world's transition to clean energy.</p>
+        <figure>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect fill='%23242329' width='600' height='300'/%3E%3Ctext x='300' y='150' font-family='Arial' font-size='24' fill='%23b8922a' text-anchor='middle' dominant-baseline='middle'%3EQuantum Materials for Energy%3C/text%3E%3C/svg%3E" alt="Energy systems visualization" />
+          <figcaption>Quantum computing enables discovery of novel materials for improved solar cells, batteries, and clean energy catalysts.</figcaption>
+        </figure>
+      </section>
 
-    <h2>Section 5: Energy Systems and Materials Discovery</h2>
-    <p>Quantum computers are exceptionally well-suited to simulating the behavior of materials and molecules — after all, molecules themselves are quantum systems. This makes quantum computing a natural tool for <strong>materials discovery</strong> and <strong>energy research</strong>.</p>
-    <p>Consider the challenge of developing better battery materials. Classical computers must test countless material compositions, which is slow and expensive. Quantum computers could simulate the electronic properties of novel materials directly from quantum mechanics, dramatically accelerating the discovery of more efficient batteries, better solar cells, and improved fuel cell catalysts.</p>
-    <p>This has immediate implications for the clean energy transition. Better batteries could enable cheaper electric vehicles. More efficient solar materials could reduce the cost of renewable energy. Better catalysts could make carbon capture more economical. Quantum computing could accelerate all of these breakthroughs.</p>
+      <section class="article-section">
+        <h2>Current Challenges and the Path Forward</h2>
+        <p>Despite the immense potential, quantum computing faces significant technical hurdles. Current quantum computers are "Noisy Intermediate-Scale Quantum" (NISQ) devices, meaning they have limited qubit counts and high error rates. Scaling to the thousands or millions of qubits needed for practical applications, while maintaining quantum coherence and reducing errors, remains a formidable engineering challenge.</p>
+        <p>The field is progressing rapidly, however. Multiple companies and research institutions are competing to develop larger, more stable quantum computers. Error correction strategies are being developed. Hybrid approaches combining quantum and classical computing are showing promise for near-term applications. Within the next 5-10 years, we may see quantum computers demonstrating "quantum advantage"—solving real-world problems faster than classical computers.</p>
+      </section>
 
-    <h2>Section 6: Drug Discovery and Personalized Medicine</h2>
-    <p>Drug discovery is another domain where quantum computing shows tremendous promise. Designing new pharmaceuticals involves simulating how candidate molecules interact with target proteins — an inherently quantum problem that classical computers struggle with.</p>
-    <p>Quantum computers could accelerate several stages of drug development:</p>
-    <ul>
-      <li><strong>Molecular simulation:</strong> Understanding how drugs bind to their targets and predicting side effects.</li>
-      <li><strong>Optimization:</strong> Finding molecular structures with desired properties.</li>
-      <li><strong>Personalized medicine:</strong> Analyzing genetic data to predict drug responses and tailor treatments to individuals.</li>
-    </ul>
-    <p>For diseases that currently lack effective treatments, quantum-accelerated drug discovery could mean the difference between a patient surviving or succumbing. The timeline from drug discovery to approval could shrink from years to months.</p>
+      <section class="article-section">
+        <h2>Conclusion: A Quantum Future</h2>
+        <p>Quantum computing represents a fundamental shift in how we process information and solve problems. Its implications extend far beyond computational science—it promises to accelerate solutions to some of humanity's most pressing challenges, from developing life-saving medicines to combating climate change and transitioning to clean energy.</p>
+        <p>While significant technical challenges remain, the potential rewards justify sustained investment and research efforts. As quantum computers mature and their capabilities expand, they will likely become an indispensable tool in the scientist's toolkit, enabling discoveries and innovations that seemed impossible just decades ago.</p>
+      </section>
+    </article>
 
-    <h2>Section 7: The Challenges of Building Quantum Computers</h2>
-    <p>For all their promise, quantum computers remain extraordinarily difficult to build. Qubits are fragile — they are easily disrupted by heat, electromagnetic interference, and vibration, leading to errors in computation. This fragility is called <em>decoherence</em>.</p>
-    <p>Current quantum computers have relatively few qubits (typically 50–1000) and high error rates. Achieving <strong>quantum advantage</strong> — the point where quantum computers outperform classical computers on meaningful problems — requires both more qubits and lower error rates.</p>
-    <p>Moreover, quantum computers require extremely cold environments (near absolute zero) and sophisticated error correction schemes. Even then, the number of "logical qubits" (error-corrected qubits) lags far behind the number of physical qubits.</p>
-
-    <h2>Section 8: The Current Landscape and Future Outlook</h2>
-    <p>We are currently in the <strong>NISQ era</strong> — the Noisy Intermediate-Scale Quantum era — where quantum computers have dozens to hundreds of qubits but high error rates. Companies like IBM, Google, IonQ, and Rigetti are building quantum systems, while researchers explore near-term applications where quantum computers might demonstrate advantage despite these limitations.</p>
-    <p>Google's 2019 claim of "quantum supremacy" — using their Sycamore processor to solve a contrived problem faster than the best classical algorithms — was a milestone, though the practical value of that particular achievement remains debated.</p>
-    <p>Looking forward, the next 5–10 years will be critical. Will quantum computers achieve fault tolerance and scale to thousands of logical qubits? Will they demonstrate clear advantage on problems that matter to industry and society? The answers will determine whether quantum computing becomes a transformative technology or remains confined to niche applications.</p>
-
-    <h2>Conclusion: Why Quantum Computing Matters</h2>
-    <p>Quantum computing is not hype. Superposition and entanglement are real physical phenomena that enable fundamentally new modes of computation. The applications — from simulating climate systems to accelerating drug discovery to optimizing energy systems — are genuinely important.</p>
-    <p>However, quantum computing is also not imminent in the sense of being a general-purpose replacement for classical computers. Quantum computers will likely excel in specific domains: molecular simulation, optimization, cryptography, and certain types of search. Classical computers will remain superior for most everyday computational tasks.</p>
-    <p>The most likely future is one of <em>hybrid computation</em>: classical computers handling routine tasks, quantum computers deployed for specialized problems where they offer exponential advantages. In fields like climate science, materials discovery, and drug development, this hybrid future could unlock solutions to some of humanity's most pressing challenges.</p>
-    <p>Quantum computing represents a fundamental expansion of what's computationally possible. And in a world facing existential challenges from climate change to disease, having access to radically more powerful computational tools isn't just useful — it could be essential.</p>
-  </article>
+    <section class="bio">
+      <h3>About the Author</h3>
+      <p><strong>Dr. Oliver Inderwildi</strong> is a renowned researcher and entrepreneur in the field of quantum computing and sustainable energy. He holds a doctorate from the University of Cambridge and has published extensively on quantum algorithms, machine learning, and their applications in solving complex scientific problems. His work focuses on bridging the gap between quantum theory and practical industrial applications.</p>
+      <div class="social-links">
+        <a href="https://twitter.com/oliverinderwildi">Twitter</a>
+        <a href="https://linkedin.com/in/oliverinderwildi">LinkedIn</a>
+        <a href="https://medium.com/@oliverinderwildi">Medium</a>
+        <a href="https://scholar.google.com/citations?user=SCHOLAR_ID">Google Scholar</a>
+      </div>
+    </section>
+  </div>
 
   <footer>
-    <p>Written by Dr. Oliver Inderwildi</p>
-    <p><a href="https://www.linkedin.com/in/oliverinderwildi/" target="_blank" rel="noopener" class="external">LinkedIn</a> | <a href="https://twitter.com/o_inderwildi" target="_blank" rel="noopener" class="external">Twitter</a></p>
+    <p>&copy; 2024 <a href="https://www.oliverinderwildi.com" rel="me">Oliver Inderwildi</a> | <a href="https://www.cam.ac.uk" rel="me">University of Cambridge</a></p>
   </footer>
+
+  <script src="avatar-inject.js"></script>
 </body>
 </html>
